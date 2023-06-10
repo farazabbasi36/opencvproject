@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hand Tracking Web App</title>
+  </head>
+ <center>
+  <body>
+    <h1>Smart Hand Fingers Tracking System Based On OpenCV Using Mediapipe and Flask
+    </h1>
+
+    <h3>Projet Team</h3>
+  
+<h3>
+    1:  Name:  Faraz Abbasi   Roll No: 2k20/ITE/36 <br>
+    2:  Name:  Fayaz Panhwar  Roll No: 2k20/ITE/39 <br>
+    3:  Name:  Shoukat        Roll No: 2k20/ITE/126 <br>
+
+  </h3>
+
+    <div>
+      <img id="video_feed" src="{{ url_for('video_feed') }}" width="640" height="480" />
+    </div>
+
+
+
+    <script>
+      // JavaScript code to update the video feed
+      const video = document.getElementById('video_feed');
+      const videoSource = new EventSource("/video_feed");
+
+      videoSource.onmessage = function (event) {
+        video.src = 'data:image/jpeg;base64,' + event.data;
+      };
+    </script>
+  </body></center>
+</html>
